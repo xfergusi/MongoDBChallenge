@@ -1,0 +1,16 @@
+Hello Team,
+
+This project was a lot of fun. I've always wanted to learn more about kafka and this gave me the opportunity to do just that.
+
+I have commented up the code quite a bit with TODOs and design assumptions.
+
+I built this jar using Maven on IntelliJ IDE.
+
+How to run:
+Here is the command I am running to kick off the jar.
+
+"C:\Program Files\Java\jdk-15\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\lib\idea_rt.jar=62892:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\xferg\IdeaProjects\MongoDBChallenge\target\classes MongoDBChallenge
+
+and the jar can be found in the target folder named MongoDBChallenge-1.0-SNAPSHOT.jar
+
+If you have any questions, please feel free to shoot me an email. Ian.Roger.Ferguson@gmail.com
