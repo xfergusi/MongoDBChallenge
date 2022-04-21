@@ -9,7 +9,7 @@ class ConsumerTest {
     @BeforeEach
     void setUp() {
         Broker broker = new Broker();
-        this.consumer = new Consumer(broker);
+        this.consumer = new Consumer(broker, "test");
         Producer producer = new Producer(broker, 0);
         Thread thread = new Thread(producer);
         thread.start();

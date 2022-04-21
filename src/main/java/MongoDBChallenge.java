@@ -1,7 +1,14 @@
 public class MongoDBChallenge {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
+//        MemoryTester memoryTester = new MemoryTester();
+//        Thread thread1 = new Thread((memoryTester));
+//        thread1.start();
+//        Thread.sleep(1000);
+//        memoryTester.printer();
+
+//        System.exit(0);
         // First, we create the broker.
         // This broker will be used by all further consumers and producers
         Broker broker = new Broker();
@@ -16,8 +23,20 @@ public class MongoDBChallenge {
 
         // Next, we create a few consumers, which can read from any topic
         // Design assumption: These consumers are not multithreaded
-        Consumer consumer1 = new Consumer(broker);
-        Consumer consumer2 = new Consumer(broker);
+        Consumer consumer1 = new Consumer(broker, "c1");
+        consumer1.addTopicToConsume("topic0");
+        consumer1.addTopicToConsume("topic1");
+        Thread thread = new Thread(consumer1);
+        thread.start();
+
+        Consumer consumer2 = new Consumer(broker, "c2");
+        consumer2.addTopicToConsume("topic1");
+        consumer2.addTopicToConsume("topic2");
+        Thread thread1 = new Thread(consumer1);
+        thread1.start();
+
+        Thread.sleep(2000);
+        System.exit(0);
 
         // Let's print out consumer1 reading all the way through topic 0 thus far
         // The last call will show there is nothing new to read
